@@ -1,11 +1,9 @@
 package compraPasajes;
 
 import java.util.Calendar;
-import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.By.ById;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -99,20 +97,7 @@ public class MainPage {
 			WebElement msgAlert = this.driver.findElement(By.xpath(".//*[@id='Alertbar1_labelAlerta']"));
 				
 			Assert.assertEquals(msgAlert.getText().toString(), ""+this.AlertPageButaca+"", "Alerta no es correcta ");
-
-			
-			
-			
-			
-			
-			
-			
-			
 			
 		}
-		
-		
-		
-		
-		
+				
 }
