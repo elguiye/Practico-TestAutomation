@@ -23,6 +23,10 @@ public class MainPage {
 		private WebElement imgCalendar;
 		private WebElement botonBuscar;
 		
+		/**
+		 * 
+		 * @param driver
+		 */
 		public MainPage(WebDriver driver){
 			this.driver = driver;
 			this.inputOrigen = this.driver.findElement(By.cssSelector("#PadOrigen"));
@@ -31,13 +35,19 @@ public class MainPage {
 			
 		}
 		
+		/**
+		 * Setea input de origen
+		 */
 		public void setInputsOrigen(){
 			this.inputOrigen.sendKeys(this.origen);
 			new WebDriverWait(this.driver, 3).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[1]")));
 			this.inputOrigen.sendKeys(Keys.ARROW_DOWN);
 			this.inputOrigen.sendKeys(Keys.TAB);
 		}																						
-			
+		
+		/**
+		 * Setea input de destino
+		 */
 		public void setInputsDestino(){
 			
 			this.inputDestino.sendKeys(this.destino);
@@ -47,11 +57,13 @@ public class MainPage {
 			
 		}
 		
-		
+		/**
+		 * Selecciona fecha definida según requerimiento, 6 dias posteariores al actual
+		 */
 		public void setCalendarInput(){
 			this.imgCalendar.click();
 			Calendar calendar = Calendar.getInstance();
-			calendar.add(Calendar.DAY_OF_YEAR, 8);
+			calendar.add(Calendar.DAY_OF_YEAR, 6);
 			
 		    String dia = Integer.toString(calendar.get(Calendar.DATE));
 		    String  mes = Integer.toString(calendar.get(Calendar.MONTH));
@@ -61,6 +73,9 @@ public class MainPage {
 			fechaPartida.click();
 		}
 		
+		/**
+		 * Presiona boton de buscar
+		 */
 		public void buscaPasajes(){
 			
 			this.botonBuscar = this.driver.findElement(By.xpath(".//*[@id='btnCons']"));
@@ -68,6 +83,9 @@ public class MainPage {
 			
 		}
 		
+		/**
+		 * Verifica pagina de servicios y butacas segun requerimiento
+		 */
 		public void VerificaPaginaServicios(){
 				
 			//Encabezado seccion servicios
